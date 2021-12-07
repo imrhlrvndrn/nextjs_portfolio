@@ -1,6 +1,5 @@
 import { Fragment } from 'react';
 import Head from 'next/Head';
-import { Navigation } from '../components';
 
 export const BasicLayout = ({
     children,
@@ -15,7 +14,6 @@ export const BasicLayout = ({
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <Navigation />
             <main>{children}</main>
         </Fragment>
     );

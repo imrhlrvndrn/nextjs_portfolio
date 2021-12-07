@@ -1,11 +1,14 @@
 import { CustomThemeProvider } from '../context';
+import { NavigationProvider } from '../context/NavigationProvider';
 import { StyledThemeProvider } from '../shared';
 
 function MyApp({ Component, pageProps }) {
     return (
         <CustomThemeProvider>
             <StyledThemeProvider>
-                <Component {...pageProps} />
+                <NavigationProvider>
+                    <Component {...pageProps} />
+                </NavigationProvider>
             </StyledThemeProvider>
         </CustomThemeProvider>
     );

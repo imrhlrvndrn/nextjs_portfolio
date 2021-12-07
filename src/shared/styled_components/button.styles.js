@@ -8,26 +8,32 @@ export const Button = styled.button`
     border-radius: ${(props) =>
         props.borderRadius ? props.borderRadius : '0'};
     transition: all 0.3s ease-in-out;
-    background-color: ${(props) => props.theme.colors.constants.purple['600']};
-    color: ${(props) => props.theme.colors.constants.text.light};
+    background-color: ${(props) => props.theme.colors.constants.purple['800']};
+
+    * {
+        color: ${(props) => props.theme.colors.constants.text.light};
+    }
 
     &:hover {
         background-color: ${(props) =>
             props.theme.colors.constants.purple['800']};
+        box-shadow: 0 0px 1.4rem 0px
+            ${(props) => props.theme.colors.constants.purple['800']};
     }
 
     ${(props) =>
         props.variant === 'secondary' &&
         css`
             background-color: transparent;
-            color: ${(props) => props.theme.colors.constants.purple['800']};
-            border: 1px solid ${props.theme.colors.constants.purple['800']};
+            border: 2px solid ${props.theme.colors.constants.purple['800']};
+
+            * {
+                color: ${(props) => props.theme.colors.constants.purple['800']};
+            }
 
             &:hover {
-                border: 1px solid transparent;
-                background-color: ${(props) =>
-                    props.theme.colors.constants.purple['800']};
-                color: ${(props) => props.theme.colors.constants.purple['50']};
+                background-color: transparent;
+                box-shadow: 0 0 0 0 transparent;
             }
         `};
 `;
