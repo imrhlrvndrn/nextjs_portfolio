@@ -19,7 +19,7 @@ export const FeaturedProject = ({ title = 'Project Title', cover_image }) => {
                     backgroundPosition: 'center',
                     backgroundImage: `url(${cover_image})`,
                     backgroundSize: 'cover',
-                    height: '420px',
+                    height: '320px',
                 }}
             ></Container>
             <Flex justify="between">

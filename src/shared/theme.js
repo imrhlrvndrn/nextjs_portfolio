@@ -51,12 +51,12 @@ export const customTheme = {
                 light: '#F4F4F6',
                 dark: '#151419',
             },
-            purple: {
-                50: '#BEB0ED',
-                200: '#9B87E4',
-                400: '#795DDA',
-                600: '#5734D1',
-                800: '#4427AA',
+            orange: {
+                50: '#FFDACC',
+                200: '#FFB499',
+                400: '#FF8F66',
+                600: '#FF6933',
+                800: '#FF4400',
             },
             alert: {
                 success: {
@@ -88,8 +88,8 @@ export const customTheme = {
             extrabold: 800,
         },
         size: {
-            display1: { large: '3.75rem' },
-            display2: { large: '3rem' },
+            display1: { large: '3.75rem', small: '3rem' },
+            display2: { large: '3rem', small: '2.5rem' },
             heading1: { large: '3rem', small: '2.125rem' },
             heading2: { large: '2.125rem', small: '1.5rem' },
             heading3: { large: '1.5rem', small: '1.25rem' },

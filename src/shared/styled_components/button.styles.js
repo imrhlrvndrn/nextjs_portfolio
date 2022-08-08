@@ -8,7 +8,7 @@ export const Button = styled.button`
     border-radius: ${(props) =>
         props.borderRadius ? props.borderRadius : '0'};
     transition: all 0.3s ease-in-out;
-    background-color: ${(props) => props.theme.colors.constants.purple['800']};
+    background-color: ${(props) => props.theme.colors.constants.orange['800']};
 
     * {
         color: ${(props) => props.theme.colors.constants.text.light};
@@ -16,19 +16,19 @@ export const Button = styled.button`
 
     &:hover {
         background-color: ${(props) =>
-            props.theme.colors.constants.purple['800']};
+            props.theme.colors.constants.orange['800']};
         box-shadow: 0 0px 1.4rem 0px
-            ${(props) => props.theme.colors.constants.purple['800']};
+            ${(props) => props.theme.colors.constants.orange['800']};
     }
 
     ${(props) =>
         props.variant === 'secondary' &&
         css`
             background-color: transparent;
-            border: 2px solid ${props.theme.colors.constants.purple['800']};
+            border: 2px solid ${props.theme.colors.constants.orange['800']};
 
             * {
-                color: ${(props) => props.theme.colors.constants.purple['800']};
+                color: ${(props) => props.theme.colors.constants.orange['800']};
             }
 
             &:hover {

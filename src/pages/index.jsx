@@ -1,33 +1,40 @@
+import { useWindowResize } from '../hooks';
+
 // styles
 import { Container, Grid, Text } from '../shared';
 import { Button } from '../shared/styled_components/button.styles';
+import { GridChild } from '../shared/styled_components/grid.styles';
 
 // components
 import { BasicLayout } from '../layouts';
-import { FeaturedProject, Navigation, Social } from '../components';
-import { GridChild } from '../shared/styled_components/grid.styles';
+import { FeaturedProject, Navigation, Footer } from '../components';
 
-export default function Home() {
+const Home = () => {
+    const {
+        size: { width: _width },
+        is_tablet,
+        is_mobile,
+    } = useWindowResize({ tablet: 1000, mobile: 600 });
+
     return (
         <BasicLayout>
             <Grid
                 columns="repeat(12, 1fr)"
-                margin="0 5rem 0 5rem"
-                area="
-                    '. nav nav nav nav nav nav nav nav nav nav .'
-                    '. . home home home home home home home home . .'
-                    '. about about about about about about about about about about .'
-                    '. projects projects projects projects projects projects projects projects projects projects .'
-                    '. social social social social social social social social social social .'
-                "
+                margin={is_tablet() ? '0 2rem' : '0 5rem'}
+                area={
+                    is_tablet()
+                        ? "'nav nav nav nav nav nav nav nav nav nav nav nav''. home home home home home home home home home home .''about about about about about about about about about about about about''projects projects projects projects projects projects projects projects projects projects projects projects''social social social social social social social social social social social social'"
+                        : "'. nav nav nav nav nav nav nav nav nav nav .''. . home home home home home home home home . .''. about about about about about about about about about about .''. projects projects projects projects projects projects projects projects projects projects .''. social social social social social social social social social social .'"
+                }
             >
                 <Navigation />
-                <GridChild margin="9.625rem 0 9.625rem 0" gridArea="home">
+                <GridChild margin="4rem 0 8rem 0" gridArea="home">
                     <Text
+                        color="red"
                         as="h1"
                         margin="4rem auto 0 auto"
                         align="center"
-                        size="display1/large"
+                        size={is_mobile() ? 'heading1/large' : 'display1/large'}
                         weight="extrabold"
                     >
                         I help turn startups and designers into superheroes
@@ -36,36 +43,37 @@ export default function Home() {
                         as="h2"
                         width="80%"
                         align="center"
-                        weight="semibold"
+                        weight="medium"
                         color="secondary"
                         size="heading4/large"
                         margin="1rem auto 0 auto"
                     >
-                        Hi it’s Mizko here. I'm the Founder of{' '}
-                        <Text as="span" color="primary" weight="extrabold">
+                        Hi it’s Rahul here. I'm the Founder of{' '}
+                        <Text as="span" color="primary" weight="semibold">
                             Designership
                         </Text>{' '}
                         and MizkoMedia. Advisor @Antler and Educator @YouTube.
                     </Text>
-                    <Button margin="2rem auto 0 auto">
+                    <Button borderRadius="0.5rem" margin="2rem auto 0 auto">
                         <Text size="heading4/large" weight="semibold">
                             Get in touch
                         </Text>
                     </Button>
                 </GridChild>
-                <GridChild margin="0 0 9.625rem 0" gridArea="about">
+                <GridChild margin="0 0 8rem 0" gridArea="about">
                     <Grid
                         auto_rows="420px"
                         columns="repeat(10, 1fr)"
-                        area="
-                        'summary summary summary summary . about_me_img about_me_img about_me_img about_me_img about_me_img'
-                    "
+                        area={
+                            is_mobile()
+                                ? "'summary summary summary summary summary summary summary summary summary summary' 'about_me_img about_me_img about_me_img about_me_img about_me_img about_me_img about_me_img about_me_img about_me_img about_me_img'"
+                                : "'summary summary summary summary . about_me_img about_me_img about_me_img about_me_img about_me_img'"
+                        }
                         align="center"
                     >
                         <Text
                             height="max-content"
                             size="heading4/large"
-                            // color="secondary"
                             style={{ gridArea: 'summary' }}
                         >
                             I have spent over 14 years as a Sydney UX Designer
@@ -93,14 +101,14 @@ export default function Home() {
                                 backgroundImage:
                                     'url(https://images.unsplash.com/photo-1638043009676-cebf001a850c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)',
                                 objectFit: 'cover',
-                                height: '420px',
+                                height: '320px',
                             }}
                         ></div>
                     </Grid>
                 </GridChild>
-                <GridChild margin="0 0 9.625rem 0" gridArea="projects">
+                <GridChild margin="0 0 8rem 0" gridArea="projects">
                     <Text
-                        weight="extrabold"
+                        weight="semibold"
                         size="heading3/large"
                         color="secondary"
                     >
@@ -109,9 +117,11 @@ export default function Home() {
                     <Grid
                         margin="2rem 0 0 0"
                         columns="repeat(10, 1fr)"
-                        area="
-                    'spotify spotify spotify spotify spotify netflix netflix netflix netflix netflix'
-                "
+                        area={
+                            is_mobile()
+                                ? "'spotify spotify spotify spotify spotify spotify spotify spotify spotify spotify' 'netflix netflix netflix netflix netflix netflix netflix netflix netflix netflix'"
+                                : "'spotify spotify spotify spotify spotify netflix netflix netflix netflix netflix'"
+                        }
                     >
                         <Container style={{ gridArea: 'spotify' }}>
                             <FeaturedProject
@@ -127,34 +137,12 @@ export default function Home() {
                         </Container>
                     </Grid>
                 </GridChild>
-                <GridChild margin="0 0 9.625rem 0" gridArea="social">
-                    <Text
-                        weight="extrabold"
-                        size="heading3/large"
-                        color="secondary"
-                    >
-                        LET'S CONNECT
-                    </Text>
-                    <Grid columns="repeat(2, 1fr)" margin="2rem 0 0 0">
-                        <Social
-                            name="LinkedIn"
-                            redirectTo="https://linkedin.com/in/imrhlrvndrn"
-                        />
-                        <Social
-                            name="Twitter"
-                            redirectTo="https://twitter.com/imrhlrvndrn"
-                        />
-                        <Social
-                            name="GitHub"
-                            redirectTo="https://github.com/imrhlrvndrn"
-                        />
-                        <Social
-                            name="Hashnode"
-                            redirectTo="https://rahulravindran.hashnode.dev"
-                        />
-                    </Grid>
+                <GridChild gridArea="social">
+                    <Footer />
                 </GridChild>
             </Grid>
         </BasicLayout>
     );
-}
+};
+
+export default Home;

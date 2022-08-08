@@ -2,19 +2,23 @@ import styled from 'styled-components';
 
 export const NavigationBar = styled.nav`
     top: 0;
+    z-index: 10;
     display: flex;
     grid-area: nav;
     padding: 2rem 0;
     position: sticky;
     align-items: center;
     justify-content: space-between;
-    background-color: ${(props) => props.theme.colors.background.primary};
+    // background-color: ${(props) => props.theme.colors.background.primary};
+    backdrop-filter: blur(5px);
 `;
 
 export const NavigationLogo = styled.div`
     a {
-        letter-spacing: 10px;
-        font-weight: ${(props) => props.theme.fonts.weight.bold};
+        padding: 0.8rem 1rem;
+        background-color: ${(props) =>
+            props?.theme?.colors?.constants?.orange['800']};
+        font-weight: ${(props) => props.theme.fonts.weight.semibold};
         font-size: ${(props) => props.theme.fonts.size.heading3.large};
     }
 `;
@@ -39,7 +43,8 @@ export const NavigationItem = styled.div`
 
     &.active {
         a {
-            font-weight: ${(props) => props.theme.fonts.weight.extrabold};
+            font-weight: ${(props) => props.theme.fonts.weight.semibold};
+            color: ${(props) => props?.theme?.colors?.constants?.orange['800']};
         }
 
         &::before {
@@ -57,7 +62,8 @@ export const NavigationItem = styled.div`
         width: 5px;
         height: 5px;
         border-radius: 50%;
-        background-color: ${(props) => props.theme.colors.text.primary};
+        background-color: ${(props) =>
+            props?.theme?.colors?.constants?.orange['800']};
         transition: 0.3s all ease-in-out;
     }
 
@@ -65,7 +71,7 @@ export const NavigationItem = styled.div`
         cursor: pointer;
 
         a {
-            font-weight: ${(props) => props.theme.fonts.weight.extrabold};
+            font-weight: ${(props) => props.theme.fonts.weight.semibold};
         }
     }
 `;

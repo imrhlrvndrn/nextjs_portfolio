@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Flex = styled.div`
     position: relative;
     display: flex;
+    flex-wrap: ${(props) => (props.wrap ? 'wrap' : 'nowrap')};
     width: ${(props) => props.width || '100%'};
     height: ${(props) => props.height || 'auto'};
     margin: ${(props) => props.margin || '0'};
