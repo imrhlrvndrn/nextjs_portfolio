@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import Head from 'next/Head';
+import Head from 'next/head';
 
 export const BasicLayout = ({
     children,
@@ -10,10 +10,7 @@ export const BasicLayout = ({
         <Fragment>
             <Head>
                 <title>{title}</title>
-                <meta
-                    name="viewport"
-                    content="width=device-width, initial-scale=1"
-                />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta name="description" content={meta.description} />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
