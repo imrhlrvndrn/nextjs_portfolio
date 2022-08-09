@@ -20,35 +20,13 @@ const Blogs = () => {
     const [blogs, setBlogs] = useState([]);
 
     useEffect(() => {
-        const blog_query = `
-        query ($username: String!){
-            user(username: $username) {
-                publication {
-                    posts(page: 0) {
-                        title
-                        brief
-                        dateAdded
-                        coverImage
-                    }
-                }
-            }
-        }
-        `;
         const fetch_blogs = async () => {
             try {
                 const blog_posts = await axios.post(
-                    'https://api.hashnode.com/',
-                    {
-                        query: blog_query,
-                        variables: { username: 'imrhlrvndrn' },
-                        // ! Remove the below access token from here & add it in an .env file
-                        headers: {
-                            Authorization:
-                                'a63356ef-188e-4053-abce-f93c1246848e',
-                        },
-                    }
+                    `${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/blogs?username=imrhlrvndrn`
                 );
 
+                console.log(blog_posts);
                 return blog_posts;
             } catch (error) {
                 console.error(error);
@@ -57,8 +35,7 @@ const Blogs = () => {
 
         (async () => {
             const blogs = await fetch_blogs();
-            console.log('Hashnode Blogs => ', blogs);
-            setBlogs(() => blogs?.data?.data?.user?.publication?.posts);
+            setBlogs(() => blogs?.data?.posts);
         })();
     }, []);
 
@@ -74,15 +51,8 @@ const Blogs = () => {
                 }
             >
                 <Navigation />
-                <GridChild
-                    gridArea="hero"
-                    margin={is_mobile() ? '4rem 0' : '8rem 0'}
-                >
-                    <Text
-                        align="center"
-                        size="display1/large"
-                        weight="extrabold"
-                    >
+                <GridChild gridArea="hero" margin={is_mobile() ? '4rem 0' : '8rem 0'}>
+                    <Text align="center" size="display1/large" weight="extrabold">
                         Some things I've shared w/ others 🤓
                     </Text>
                 </GridChild>
