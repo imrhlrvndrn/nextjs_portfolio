@@ -16,8 +16,7 @@ export const NavigationBar = styled.nav`
 export const NavigationLogo = styled.div`
     a {
         padding: 0.8rem 1rem;
-        background-color: ${(props) =>
-            props?.theme?.colors?.constants?.orange['800']};
+        background-color: ${(props) => props?.theme?.colors?.constants?.orange['800']};
         font-weight: ${(props) => props.theme.fonts.weight.semibold};
         font-size: ${(props) => props.theme.fonts.size.heading3.large};
     }
@@ -42,10 +41,8 @@ export const NavigationItem = styled.div`
     }
 
     &.active {
-        a {
-            font-weight: ${(props) => props.theme.fonts.weight.semibold};
-            color: ${(props) => props?.theme?.colors?.constants?.orange['800']};
-        }
+        font-weight: ${(props) => props.theme.fonts.weight.semibold};
+        color: ${(props) => props?.theme?.colors?.constants?.orange['800']};
 
         &::before {
             opacity: 1;
@@ -62,8 +59,7 @@ export const NavigationItem = styled.div`
         width: 5px;
         height: 5px;
         border-radius: 50%;
-        background-color: ${(props) =>
-            props?.theme?.colors?.constants?.orange['800']};
+        background-color: ${(props) => props?.theme?.colors?.constants?.orange['800']};
         transition: 0.3s all ease-in-out;
     }
 

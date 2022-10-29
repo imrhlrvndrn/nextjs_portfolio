@@ -48,11 +48,11 @@ const Home = () => {
                         size="heading4/large"
                         margin="1rem auto 0 auto"
                     >
-                        Hi it’s Rahul here. I'm the Founder of{' '}
+                        Hi it’s Rahul here.{' '}
                         <Text as="span" color="primary" weight="semibold">
-                            Designership
+                            Web Designer & Developer
                         </Text>{' '}
-                        and MizkoMedia. Advisor @Antler and Educator @YouTube.
+                        from India. I create custom web apps that help businesses do better online
                     </Text>
                     <Button borderRadius="0.5rem" margin="2rem auto 0 auto">
                         <Text size="heading4/large" weight="semibold">
@@ -76,13 +76,11 @@ const Home = () => {
                             size="heading4/large"
                             style={{ gridArea: 'summary' }}
                         >
-                            I have spent over 14 years as a Sydney UX Designer
-                            and UX design agency founder. I have helped lead
-                            strategy and design for 100+ different companies,
-                            raising $500M+ in venture capital across US, Europe
-                            and Australia. Beyond design, I am passionate about
-                            educating and empowering the next generation of
-                            designers.
+                            I'm a self-taught front-end developer. My job as a developer is to be
+                            the voice of the user. To build user interfaces that are functional,
+                            accessible, and visually appealing. If you're interested, let's work on
+                            a project together! I love to automate stuff, it allows me to be more
+                            efficient.
                         </Text>
                         {/* // ! Figure out a way to pass styles with `style` prop in NextJS Image component */}
                         {/* <img
@@ -107,11 +105,7 @@ const Home = () => {
                     </Grid>
                 </GridChild>
                 <GridChild margin="0 0 8rem 0" gridArea="projects">
-                    <Text
-                        weight="semibold"
-                        size="heading3/large"
-                        color="secondary"
-                    >
+                    <Text weight="semibold" size="heading3/large" color="secondary">
                         FEATURED PROJECTS
                     </Text>
                     <Grid

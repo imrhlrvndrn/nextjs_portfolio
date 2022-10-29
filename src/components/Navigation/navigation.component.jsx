@@ -23,9 +23,19 @@ export const Navigation = () => {
     useEffect(() => {
         navigationDispatch({
             type: 'SET_ROUTE',
-            payload: { path: router.pathname },
+            payload: { path: router?.pathname },
         });
+
+        console.log('NextJS router obj => ', router);
     }, []);
+
+    const change_route = (_id, link) => {
+        navigationDispatch({
+            type: 'CHANGE_ROUTE',
+            payload: { route_id: _id },
+        });
+        router.push(link);
+    };
 
     return (
         <NavigationBar>
@@ -40,16 +50,9 @@ export const Navigation = () => {
                         <NavigationItem
                             className={is_active ? 'active' : ''}
                             key={_id}
-                            onClick={() =>
-                                navigationDispatch({
-                                    type: 'CHANGE_ROUTE',
-                                    payload: { route_id: _id },
-                                })
-                            }
+                            onClick={() => change_route(_id, link)}
                         >
-                            <Link href={link}>
-                                <a>{name}</a>
-                            </Link>
+                            {name}
                         </NavigationItem>
                     ))}
                 </NavigationItemsContainer>
@@ -68,5 +71,13 @@ export const Navigation = () => {
                 )}
             </NavigationItemsContainer>
         </NavigationBar>
+    );
+};
+
+const NavLink = ({ children, href }) => {
+    return (
+        <Link href={href} onClick={() => console.log('Navlink was clicked')}>
+            {children}
+        </Link>
     );
 };
