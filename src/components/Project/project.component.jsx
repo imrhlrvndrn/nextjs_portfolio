@@ -12,12 +12,7 @@ export const Project = ({
     image_url = 'https://avatars.githubusercontent.com/u/43089715?v=4',
     title = 'Project title',
     description = 'This project does the work that you do every day repeatedly, does saving you valueable time',
-    tech_stacks = [
-        'NextJS',
-        'Framer-Motion',
-        'Styled-Components',
-        'Sanity CMS',
-    ],
+    tech_stacks = ['NextJS', 'Styled-Components'],
     project_links = {
         code: 'https://github.com/imrhlrvndrn?tab=repositories',
         live_demo: '',
@@ -54,10 +49,7 @@ export const Project = ({
             style={{ placeItems: 'center' }}
         >
             {!is_mobile() && (
-                <GridChild
-                    column={project_alignment[alignment].image}
-                    row="1/1"
-                >
+                <GridChild column={project_alignment[alignment].image} row="1/1">
                     <img
                         src={image_url}
                         alt={title}
@@ -134,13 +126,9 @@ export const Project = ({
                     {/* Project Tech Stacks */}
                     <Flex
                         width="70%"
-                        margin={
-                            content_alignment() ? '0 0 0 auto' : '0 auto 0 0'
-                        }
+                        margin={content_alignment() ? '0 0 0 auto' : '0 auto 0 0'}
                         wrap
-                        justify={
-                            content_alignment() ? 'flex-end' : 'flex-start'
-                        }
+                        justify={content_alignment() ? 'flex-end' : 'flex-start'}
                     >
                         {tech_stacks?.map((tech) => (
                             <Text
@@ -148,11 +136,7 @@ export const Project = ({
                                 width="max-content"
                                 size="body/large"
                                 color="secondary"
-                                margin={
-                                    content_alignment()
-                                        ? '0 0 0.5rem 1rem'
-                                        : '0 1rem 0.5rem 0'
-                                }
+                                margin={content_alignment() ? '0 0 0.5rem 1rem' : '0 1rem 0.5rem 0'}
                             >
                                 {tech}
                             </Text>
@@ -161,9 +145,7 @@ export const Project = ({
                     {/* Project Links */}
                     <Flex
                         margin="1rem 0 0 0"
-                        justify={
-                            content_alignment() ? 'flex-end' : 'flex-start'
-                        }
+                        justify={content_alignment() ? 'flex-end' : 'flex-start'}
                     >
                         <a target="_blank" href={project_links?.code}>
                             <FiGithub

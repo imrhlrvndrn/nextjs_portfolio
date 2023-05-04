@@ -1,6 +1,5 @@
 import { BasicLayout } from '../layouts';
 import { useWindowResize } from '../hooks';
-import { blogs } from '../constants/blogs.constant';
 import axios from 'axios';
 
 // styles
@@ -9,35 +8,13 @@ import { GridChild } from '../shared/styled_components/grid.styles';
 
 // components
 import { Footer, Navigation, Blog } from '../components';
-import { useEffect, useState } from 'react';
 
-const Blogs = () => {
+const Blogs = ({ blog_posts }) => {
     const {
         size: { width: _width },
         is_tablet,
         is_mobile,
     } = useWindowResize({ tablet: 1000, mobile: 600 });
-    const [blogs, setBlogs] = useState([]);
-
-    useEffect(() => {
-        const fetch_blogs = async () => {
-            try {
-                const blog_posts = await axios.post(
-                    `${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/blogs?username=imrhlrvndrn`
-                );
-
-                console.log(blog_posts);
-                return blog_posts;
-            } catch (error) {
-                console.error(error);
-            }
-        };
-
-        (async () => {
-            const blogs = await fetch_blogs();
-            setBlogs(() => blogs?.data?.posts);
-        })();
-    }, []);
 
     return (
         <BasicLayout title="Rahul Ravindran | Blogs">
@@ -57,7 +34,7 @@ const Blogs = () => {
                     </Text>
                 </GridChild>
                 <GridChild margin="0 0 4 rem 0" gridArea="blogs">
-                    {blogs?.map(({ title, brief, dateAdded, coverImage }) => (
+                    {blog_posts?.map(({ title, brief, dateAdded, coverImage }) => (
                         <Blog
                             title={title}
                             brief={brief}
@@ -72,6 +49,14 @@ const Blogs = () => {
             </Grid>
         </BasicLayout>
     );
+};
+
+export const getStaticProps = async (context) => {
+    const blogs = await axios.post(
+        `${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/blogs?username=imrhlrvndrn`
+    );
+
+    return { props: { blog_posts: blogs?.data?.posts } };
 };
 
 export default Blogs;

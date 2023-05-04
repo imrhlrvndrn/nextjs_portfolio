@@ -20,7 +20,7 @@ const blogs = async (req, res) => {
 
         try {
             const blog_posts = await axios.post(process.env.HASHNODE_API_ENDPOINT, {
-                query: query,
+                query,
                 variables: { username },
                 headers: {
                     Authorization: process.env.HASHNODE_PERSONAL_TOKEN,

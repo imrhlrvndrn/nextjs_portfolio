@@ -28,15 +28,8 @@ const Projects = () => {
                 }
             >
                 <Navigation />
-                <GridChild
-                    gridArea="hero"
-                    margin={is_mobile() ? '4rem 0' : '8rem 0'}
-                >
-                    <Text
-                        align="center"
-                        size="display1/large"
-                        weight="extrabold"
-                    >
+                <GridChild gridArea="hero" margin={is_mobile() ? '4rem 0' : '8rem 0'}>
+                    <Text align="center" size="display1/large" weight="extrabold">
                         Some things I've built 🤓
                     </Text>
                 </GridChild>
@@ -71,25 +64,14 @@ const Projects = () => {
                 </GridChild> */}
                 <GridChild margin="0 0 4 rem 0" gridArea="projects">
                     {projects?.map(
-                        (
-                            {
-                                image_url,
-                                title,
-                                description,
-                                links,
-                                tech_stacks,
-                            },
-                            index
-                        ) => (
+                        ({ image_url, title, description, links, tech_stacks }, index) => (
                             <Project
                                 title={title}
                                 project_links={links}
                                 image_url={image_url}
                                 description={description}
                                 tech_stacks={tech_stacks}
-                                alignment={
-                                    (index + 1) % 2 === 0 ? 'left' : 'right'
-                                }
+                                alignment={(index + 1) % 2 === 0 ? 'left' : 'right'}
                             />
                         )
                     )}
