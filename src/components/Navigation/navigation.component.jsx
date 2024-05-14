@@ -44,7 +44,7 @@ export const Navigation = () => {
                     <a>RR</a>
                 </Link>
             </NavigationLogo>
-            {!is_mobile() && (
+            {/* {!is_mobile() && ( */}
                 <NavigationItemsContainer>
                     {navigationItems.map(({ _id, name, link, is_active }) => (
                         <NavigationItem
@@ -56,19 +56,19 @@ export const Navigation = () => {
                         </NavigationItem>
                     ))}
                 </NavigationItemsContainer>
-            )}
+            {/* )} */}
             <NavigationItemsContainer>
                 <ToggleSwitch
                     onToggle={() => themeDispatch({ type: 'TOGGLE_THEME' })}
                     toggleState={isDarkTheme}
                 />
-                {is_mobile() && (
+                {/* {is_mobile() && (
                     <TbMenu
                         size={24}
                         style={{ margin: '0 0 0 2rem' }}
                         color={theme?.colors?.text?.primary}
                     />
-                )}
+                )} */}
             </NavigationItemsContainer>
         </NavigationBar>
     );

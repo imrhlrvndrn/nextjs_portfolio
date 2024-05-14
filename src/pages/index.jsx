@@ -8,8 +8,10 @@ import { GridChild } from '../shared/styled_components/grid.styles';
 // components
 import { BasicLayout } from '../layouts';
 import { FeaturedProject, Navigation, Footer } from '../components';
+import { useRouter } from 'next/router';
 
 const Home = () => {
+    const router = useRouter();
     const {
         size: { width: _width },
         is_tablet,
@@ -54,7 +56,11 @@ const Home = () => {
                         </Text>{' '}
                         from India. I create custom web apps that help businesses do better online
                     </Text>
-                    <Button borderRadius="0.5rem" margin="2rem auto 0 auto">
+                    <Button
+                        borderRadius="0.5rem"
+                        margin="2rem auto 0 auto"
+                        onClick={() => router.push('https://www.linkedin.com/in/imrhlrvndrn/')}
+                    >
                         <Text size="heading4/large" weight="semibold">
                             Get in touch
                         </Text>
@@ -119,12 +125,14 @@ const Home = () => {
                     >
                         <Container style={{ gridArea: 'spotify' }}>
                             <FeaturedProject
+                                pathname={`https://github.com/imrhlrvndrn/spotify-clone`}
                                 title="Spotify Clone"
                                 cover_image="https://images.unsplash.com/photo-1614680376593-902f74cf0d41?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
                             />
                         </Container>
                         <Container style={{ gridArea: 'netflix' }}>
                             <FeaturedProject
+                                pathname={`https://github.com/imrhlrvndrn/netflix-clone`}
                                 title="Netflix Clone"
                                 cover_image="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
                             />

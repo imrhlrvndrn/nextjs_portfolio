@@ -11,10 +11,10 @@ export const navigationItems = [
         link: '/projects',
         is_active: false,
     },
-    {
-        _id: 3,
-        name: 'Blogs',
-        link: '/blogs',
-        is_active: false,
-    },
+    // {
+    //     _id: 3,
+    //     name: 'Blogs',
+    //     link: '/blogs',
+    //     is_active: false,
+    // },
 ];

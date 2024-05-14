@@ -1,32 +1,24 @@
 import Image from 'next/image';
-import { Fragment } from 'react';
-import { Container, Flex, Text } from '../../shared';
+import Link from 'next/link';
+import { Flex, Text } from '../../shared';
 
-export const FeaturedProject = ({ title = 'Project Title', cover_image }) => {
+export const FeaturedProject = ({ title = 'Project Title', cover_image, pathname = '/' }) => {
     return (
-        <Fragment>
-            {/* <img
-                // width={556}
-                height={418}
-                src={cover_image}
-                alt="Spotify Project Cover"
-            /> */}
-
-            <Container
-                margin="0 0 1rem 0"
-                title="Project Cover"
-                style={{
-                    backgroundPosition: 'center',
-                    backgroundImage: `url(${cover_image})`,
-                    backgroundSize: 'cover',
-                    height: '320px',
-                }}
-            ></Container>
-            <Flex justify="between">
-                <Text size="heading4/large" weight="bold">
-                    {title}
-                </Text>
-            </Flex>
-        </Fragment>
+        <Link href={{ pathname }}>
+            <a target="_blank">
+                <Image
+                    src={cover_image}
+                    width="500px"
+                    height="320px"
+                    objectFit="cover"
+                    objectPosition="center"
+                />
+                <Flex>
+                    <Text size="heading4/large" weight="bold">
+                        {title}
+                    </Text>
+                </Flex>
+            </a>
+        </Link>
     );
 };

@@ -26,10 +26,10 @@ const blogs = async (req, res) => {
                     Authorization: process.env.HASHNODE_PERSONAL_TOKEN,
                 },
             });
-
             return res.json({ posts: blog_posts?.data?.data?.user?.publication?.posts });
         } catch (error) {
             console.error(error);
+            return res.status(500).json({ message: 'aaaahhhh!!!!' });
         }
     }
 };
